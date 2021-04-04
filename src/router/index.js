@@ -4,6 +4,7 @@ import Jobs from '../views/jobs/Jobs.vue';
 import JobDetails from '../views/jobs/JobDetails.vue';
 import NotFound from '../views/NotFound.vue';
 import CompositionApi from '../views/CompositionApi.vue';
+import Posts from '../views/Posts.vue';
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
     path: '/composition-api',
     name: 'CompositionApi',
     component: CompositionApi,
+  },
+  {
+    path: '/use-props-in-setup',
+    name: 'Posts',
+    component: Posts,
   },
   // redirect
   {

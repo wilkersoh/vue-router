@@ -88,10 +88,10 @@ export default {
     };
   },
   created() {
-    console.log('created second');
+    console.log('created using options API second');
   },
   mounted() {
-    console.log('mounted third');
+    console.log('mounted using options API third');
   },
 };
 </script>
