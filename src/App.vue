@@ -4,7 +4,8 @@
     <router-link :to="{ name: 'About' }">About</router-link> |
     <router-link :to="{ name: 'Jobs' }">Jobs</router-link> |
     <router-link :to="{ name: 'CompositionApi' }">CompositionApi</router-link> |
-    <router-link :to="{ name: 'Posts' }">Posts</router-link>
+    <router-link :to="{ name: 'Posts' }">Posts</router-link> |
+    <router-link :to="{ name: 'FormVue' }">FormVue</router-link>
   </div>
 
   <button @click="redirect">Redirect</button>

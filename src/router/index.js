@@ -5,6 +5,7 @@ import JobDetails from '../views/jobs/JobDetails.vue';
 import NotFound from '../views/NotFound.vue';
 import CompositionApi from '../views/CompositionApi.vue';
 import Posts from '../views/Posts.vue';
+import FormVue from '../views/FormVue.vue';
 
 const routes = [
   {
@@ -41,6 +42,11 @@ const routes = [
     path: '/use-props-in-setup',
     name: 'Posts',
     component: Posts,
+  },
+  {
+    path: '/form',
+    name: 'FormVue',
+    component: FormVue,
   },
   // redirect
   {
