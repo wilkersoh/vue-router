@@ -4,7 +4,9 @@ import Jobs from '../views/jobs/Jobs.vue';
 import JobDetails from '../views/jobs/JobDetails.vue';
 import NotFound from '../views/NotFound.vue';
 import CompositionApi from '../views/CompositionApi.vue';
-import Posts from '../views/Posts.vue';
+// import Composables from '../views/Composables.vue';
+import Composables from '../views/posts/Composables.vue';
+import PostDetails from '../views/posts/PostDetails.vue';
 import FormVue from '../views/FormVue.vue';
 
 const routes = [
@@ -39,9 +41,15 @@ const routes = [
     component: CompositionApi,
   },
   {
-    path: '/use-props-in-setup',
-    name: 'Posts',
-    component: Posts,
+    path: '/composition-api/:id',
+    name: 'PostDetails',
+    component: PostDetails,
+    props: true,
+  },
+  {
+    path: '/composables',
+    name: 'Composables',
+    component: Composables,
   },
   {
     path: '/form',

@@ -3,5 +3,19 @@
     { "id": 1, "title": "Cool 1", "details": "details 01" },
     { "id": 2, "title": "Cool 2", "details": "details 02" },
     { "id": 3, "title": "Cool 3", "details": "details 03" }
+  ],
+  "posts": [
+    {
+      "title": "welcome to the blog 1",
+      "body": "lorem jsaas",
+      "id": 1,
+      "tags": ["webdev", "coding", "news"]
+    },
+    {
+      "title": "welcome to the blog 2",
+      "body": "lorem jsaas lorem jsaas lorem jsaaslorem jsaaslorem jsaaslorem jsaas lorem jsaas",
+      "id": 2,
+      "tags": ["css", "html"]
+    }
   ]
 }

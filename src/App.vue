@@ -2,9 +2,15 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link :to="{ name: 'About' }">About</router-link> |
-    <router-link :to="{ name: 'Jobs' }">Jobs</router-link> |
+    <router-link :to="{ name: 'Jobs' }"
+      >Jobs (pass params from router)</router-link
+    >
+    |
     <router-link :to="{ name: 'CompositionApi' }">CompositionApi</router-link> |
-    <router-link :to="{ name: 'Posts' }">Posts</router-link> |
+    <router-link :to="{ name: 'Composables' }"
+      >Composables (customHook)</router-link
+    >
+    |
     <router-link :to="{ name: 'FormVue' }">FormVue</router-link>
   </div>
 
