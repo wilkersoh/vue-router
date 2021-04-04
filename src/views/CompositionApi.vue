@@ -11,10 +11,12 @@
   <div v-for="name in matchingNames" :key="name">{{ name }}</div>
   <input type="text" v-model="search" />
   <p>search term - {{ search }}</p>
+  <h2>watch || watchEffect (didn't trigger watch login again after clicked)</h2>
+  <button @click="handleStopWatch">Stop watching</button>
 </template>
 
 <script>
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive, computed, watch, watchEffect } from 'vue';
 
 export default {
   name: 'CompositionApi',
@@ -54,6 +56,27 @@ export default {
       });
     });
 
+    // watching this "search"
+    const stopWatch = watch(search, () => {
+      console.log('watch function run');
+    });
+
+    const stopWatchEffect = watchEffect(() => {
+      /**
+       * it become dependency when put any variable value inside watchEffect
+       * it will trigger this function when it changed.
+       */
+      console.log(
+        'like react useEffect, it will run in first mounted.',
+        search.value
+      );
+    });
+
+    const handleStopWatch = () => {
+      stopWatch();
+      stopWatchEffect();
+    };
+
     return {
       user,
       userOther,
@@ -61,6 +84,7 @@ export default {
       updateUserOther,
       matchingNames,
       search,
+      handleStopWatch,
     };
   },
   created() {
