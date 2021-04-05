@@ -8,7 +8,7 @@
     <!-- Clean code -->
     <component :is="activeTab" />
 
-    <!-- Bad code -->
+    <!-- Bad  -->
     <TabADynamic v-if="activeTab === 'TabADynamic'" />
     <TabBDynamic v-if="activeTab === 'TabBDynamic'" />
     <TabCDynamic v-if="activeTab === 'TabCDynamic'" />
