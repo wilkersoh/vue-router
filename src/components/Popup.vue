@@ -9,8 +9,11 @@
 </template>
 
 <script>
+// import Input from './Input.vue';
+
 export default {
   name: 'Popup',
+  // components: { Input },
   emits: {
     closePopup: (name) => {
       if (!name) return false;
