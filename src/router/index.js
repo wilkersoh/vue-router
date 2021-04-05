@@ -8,6 +8,7 @@ import Composables from '../views/posts/Composables.vue';
 import PostDetails from '../views/posts/PostDetails.vue';
 import FormVue from '../views/FormVue.vue';
 import DynamicComponent from '../views/DynamicComponent.vue';
+import TeleportVue from '../views/TeleportVue.vue';
 
 export const routes = [
   {
@@ -60,6 +61,11 @@ export const routes = [
     path: '/dynamic-component',
     name: 'DynamicComponent',
     component: DynamicComponent,
+  },
+  {
+    path: '/teleport',
+    name: 'TeleportVue',
+    component: TeleportVue,
   },
   // redirect
   {

@@ -26,6 +26,8 @@
       >DynamicComponent</router-link
     >
     |
+    <router-link :to="{ name: 'TeleportVue' }">TeleportVue</router-link>
+    |
   </div>
 
   <button @click="redirect">Redirect</button>
