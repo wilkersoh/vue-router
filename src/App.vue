@@ -22,13 +22,17 @@
     |
     <router-link :to="{ name: 'FormVue' }">FormVue</router-link>
     |
-    <!-- <router-link :to="{ name: 'Popup' }">Popup</router-link> -->
+    <router-link :to="{ name: 'DynamicComponent' }"
+      >DynamicComponent</router-link
+    >
+    |
   </div>
 
   <button @click="redirect">Redirect</button>
   <button @click="back">Go back</button>
   <button @click="forward">Go forward</button>
   <button @click="showPopup = true">{{ popupData }} Open popup</button>
+  <InputComponent v-model="inputName" />
 
   <Popup v-show="showPopup" @closePopup="handleClosePopup" :title="popupData" />
 
@@ -38,17 +42,20 @@
 <script>
 import { routes } from './router';
 import Popup from './components/Popup';
+import InputComponent from './components/InputComponent';
 
 export default {
   components: {
     Popup,
+    InputComponent,
   },
   data() {
-    return { routes: [], showPopup: false, popupData: '' };
+    return { routes: [], showPopup: false, popupData: '', inputName: '' };
   },
   created() {
     this.routes = routes;
     console.log('routes :>> ', routes);
+    console.log('this.inputName :>> ', this.inputName);
   },
   methods: {
     redirect() {
@@ -64,7 +71,6 @@ export default {
     },
     handleClosePopup(value) {
       this.showPopup = false;
-      console.log('value :>> ', value);
       this.popupData = value;
     },
   },

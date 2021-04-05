@@ -4,10 +4,10 @@ import Jobs from '../views/jobs/Jobs.vue';
 import JobDetails from '../views/jobs/JobDetails.vue';
 import NotFound from '../views/NotFound.vue';
 import CompositionApi from '../views/CompositionApi.vue';
-// import Composables from '../views/Composables.vue';
 import Composables from '../views/posts/Composables.vue';
 import PostDetails from '../views/posts/PostDetails.vue';
 import FormVue from '../views/FormVue.vue';
+import DynamicComponent from '../views/DynamicComponent.vue';
 
 export const routes = [
   {
@@ -55,6 +55,11 @@ export const routes = [
     path: '/form',
     name: 'FormVue',
     component: FormVue,
+  },
+  {
+    path: '/dynamic-component',
+    name: 'DynamicComponent',
+    component: DynamicComponent,
   },
   // redirect
   {
