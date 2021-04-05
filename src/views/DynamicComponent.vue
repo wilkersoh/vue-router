@@ -5,10 +5,12 @@
     <button @click="activeTab = 'TabBDynamic'">DynamicComponent B</button>
     <button @click="activeTab = 'TabCDynamic'">DynamicComponent C</button>
 
-    <!-- Clean code -->
-    <component :is="activeTab" />
+    <!-- Clean code | Keep the component alive -->
+    <keep-alive>
+      <component :is="activeTab" />
+    </keep-alive>
 
-    <!-- Bad  -->
+    <!-- Bad | component is not alive after changed -->
     <TabADynamic v-if="activeTab === 'TabADynamic'" />
     <TabBDynamic v-if="activeTab === 'TabBDynamic'" />
     <TabCDynamic v-if="activeTab === 'TabCDynamic'" />
