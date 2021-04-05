@@ -1,6 +1,15 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
+    <!--
+    <router-link
+      v-for="(route, i) in routes"
+      :key="i"
+      :to="{ name: route.name }"
+    >
+      {{ route.name }}
+    </router-link> -->
+
     <router-link :to="{ name: 'About' }">About</router-link> |
     <router-link :to="{ name: 'Jobs' }"
       >Jobs (pass params from router)</router-link
@@ -12,17 +21,35 @@
     >
     |
     <router-link :to="{ name: 'FormVue' }">FormVue</router-link>
+    |
+    <!-- <router-link :to="{ name: 'Popup' }">Popup</router-link> -->
   </div>
 
   <button @click="redirect">Redirect</button>
   <button @click="back">Go back</button>
   <button @click="forward">Go forward</button>
+  <button @click="showPopup = true">{{ popupData }} Open popup</button>
+
+  <Popup v-show="showPopup" @closePopup="handleClosePopup" :title="popupData" />
 
   <router-view />
 </template>
 
 <script>
+import { routes } from './router';
+import Popup from './components/Popup';
+
 export default {
+  components: {
+    Popup,
+  },
+  data() {
+    return { routes: [], showPopup: false, popupData: '' };
+  },
+  created() {
+    this.routes = routes;
+    console.log('routes :>> ', routes);
+  },
   methods: {
     redirect() {
       this.$router.push({
@@ -34,6 +61,11 @@ export default {
     },
     forward() {
       this.$router.go(1);
+    },
+    handleClosePopup(value) {
+      this.showPopup = false;
+      console.log('value :>> ', value);
+      this.popupData = value;
     },
   },
 };

@@ -9,7 +9,7 @@ import Composables from '../views/posts/Composables.vue';
 import PostDetails from '../views/posts/PostDetails.vue';
 import FormVue from '../views/FormVue.vue';
 
-const routes = [
+export const routes = [
   {
     path: '/',
     name: 'Home',
