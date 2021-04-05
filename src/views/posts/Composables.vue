@@ -8,7 +8,7 @@
     <h2>Loading....</h2>
   </div>
   <!-- Doesn't work Suspense -->
-  <!-- <Suspense v-else>
+  <!-- <Suspense>
     <template #default>
       <PostList v-if="showPosts" :posts="posts" />
     </template>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import PostList from './PostList.vue';
 import getPosts from '../../composables/getPosts';
 
@@ -32,14 +32,15 @@ export default {
   setup() {
     const showPosts = ref(true);
 
-    const { error, posts, load } = getPosts();
+    const { posts, error, load } = getPosts();
 
     const deletePost = () => {
-      console.log(posts.value);
       posts.value.pop();
     };
 
-    load();
+    onMounted(async () => {
+      await load();
+    });
 
     return { posts, error, showPosts, deletePost };
   },

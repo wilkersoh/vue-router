@@ -1,8 +1,12 @@
-import { ref } from 'vue';
+import { reactive, toRefs } from 'vue';
+
+const sleep = async (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const getPosts = () => {
-  const posts = ref([]);
-  const error = ref(null);
+  const state = reactive({
+    error: null,
+    posts: [],
+  });
 
   const load = async () => {
     try {
@@ -11,16 +15,15 @@ const getPosts = () => {
       if (!data.ok) {
         throw Error('No data available');
       }
-
-      posts.value = await data.json();
+      await sleep(2000);
+      state.posts = await data.json();
     } catch (err) {
-      error.value = err.message;
+      state.error = err.message;
     }
   };
 
   return {
-    posts,
-    error,
+    ...toRefs(state),
     load,
   };
 };
