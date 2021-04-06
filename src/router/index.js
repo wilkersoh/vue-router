@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
-import Jobs from '../views/jobs/Jobs.vue';
-import JobDetails from '../views/jobs/JobDetails.vue';
+import PassParamsFromRoute from '../views/passParams/PassParamsFromRoute.vue';
+import OtherPage from '../views/passParams/OtherPage.vue';
 import NotFound from '../views/NotFound.vue';
 import CompositionApi from '../views/CompositionApi.vue';
 import Composables from '../views/posts/Composables.vue';
@@ -30,14 +30,14 @@ export const routes = [
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
-    path: '/jobs',
-    name: 'Jobs',
-    component: Jobs,
+    path: '/pass-params-from-route',
+    name: 'PassParamsFromRoute',
+    component: PassParamsFromRoute,
   },
   {
     path: '/jobs/:id',
-    name: 'JobDetails',
-    component: JobDetails,
+    name: 'OtherPage',
+    component: OtherPage,
     props: true,
   },
   {
