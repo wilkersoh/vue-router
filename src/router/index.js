@@ -33,6 +33,14 @@ export const routes = [
     path: '/pass-params-from-route',
     name: 'PassParamsFromRoute',
     component: PassParamsFromRoute,
+    // children: [
+    //   {
+    //     path: '/jobs/:id',
+    //     name: 'OtherPage',
+    //     component: OtherPage,
+    //     props: true,
+    //   },
+    // ],
   },
   {
     path: '/jobs/:id',

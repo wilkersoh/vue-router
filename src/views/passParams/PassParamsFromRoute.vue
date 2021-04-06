@@ -8,7 +8,7 @@
     </div>
   </div>
   <div v-else>
-    <p>Loading in jobs</p>
+    <p>Loading...Please confirm you runing on json server</p>
   </div>
 </template>
 
