@@ -1,14 +1,11 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-
-    <!-- <router-link
-      v-for="(route, i) in routes"
-      :key="i"
-      :to="{ name: route.name }"
-    >
-      {{ route.name }}
-    </router-link> -->
+    <ul>
+      <li v-for="(route, i) in routes" :key="i">
+        <router-link :to="{ name: route.name }">{{ route.name }}</router-link>
+      </li>
+    </ul>
+    <!-- <router-link to="/">Home</router-link> |
 
     <router-link :to="{ name: 'About' }">About</router-link> |
     <router-link :to="{ name: 'Jobs' }"
@@ -27,7 +24,7 @@
     >
     |
     <router-link :to="{ name: 'TeleportVue' }">TeleportVue</router-link>
-    |
+    | -->
   </div>
 
   <button @click="redirect">Redirect</button>
@@ -55,9 +52,13 @@ export default {
     return { routes: [], showPopup: false, popupData: '', inputName: '' };
   },
   created() {
-    this.routes = routes;
-    console.log('routes :>> ', routes);
-    console.log('this.inputName :>> ', this.inputName);
+    const filtered = routes.filter((route) => {
+      if (!route.name || route.path.indexOf(':') >= 0) return false;
+
+      return true;
+    });
+
+    this.routes = filtered;
   },
   methods: {
     redirect() {
@@ -90,6 +91,17 @@ export default {
 
 #nav {
   padding: 30px;
+}
+
+#nav ul {
+  list-style: none;
+}
+
+#nav ul li {
+  display: inline-block;
+  border: 1px solid #333;
+  padding: 4px 6px;
+  margin-top: 2px;
 }
 
 #nav a {
