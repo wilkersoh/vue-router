@@ -10,6 +10,7 @@ import FormVue from '../views/FormVue.vue';
 import DynamicComponent from '../views/DynamicComponent.vue';
 import TeleportVue from '../views/TeleportVue.vue';
 import MixinsVue from '../views/MixinsVue.vue';
+import WatchVue from '../views/WatchVue.vue';
 
 export const routes = [
   {
@@ -72,6 +73,11 @@ export const routes = [
     path: '/mixins',
     name: 'MixinsVue',
     component: MixinsVue,
+  },
+  {
+    path: '/watch',
+    name: 'WatchVue',
+    component: WatchVue,
   },
   // redirect
   {
