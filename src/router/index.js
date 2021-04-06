@@ -46,7 +46,11 @@ export const routes = [
     path: '/jobs/:id',
     name: 'OtherPage',
     component: OtherPage,
-    props: true,
+    props: true, // pass params as props if you turn on this
+    beforeEnter: (to, from, next) => {
+      const isValidId = Number.isInteger(Number(to.params.id));
+      next(isValidId); // id is string, so it cannot be click
+    },
   },
   {
     path: '/composition-api',

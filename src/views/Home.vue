@@ -15,6 +15,17 @@
 <script>
 export default {
   name: 'Home',
+  beforeRouteLeave(to, from, next) {
+    if (false) {
+      next(true);
+    } else {
+      const response = confirm(
+        'You have not ready to paid yet, are you want to leave?'
+      );
+      console.log('am i here?');
+      next(response);
+    }
+  },
   components: {},
 };
 </script>
