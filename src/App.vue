@@ -5,26 +5,6 @@
         <router-link :to="{ name: route.name }">{{ route.name }}</router-link>
       </li>
     </ul>
-    <!-- <router-link to="/">Home</router-link> |
-
-    <router-link :to="{ name: 'About' }">About</router-link> |
-    <router-link :to="{ name: 'Jobs' }"
-      >Jobs (pass params from router)</router-link
-    >
-    |
-    <router-link :to="{ name: 'CompositionApi' }">CompositionApi</router-link> |
-    <router-link :to="{ name: 'Composables' }"
-      >Composables (customHook)</router-link
-    >
-    |
-    <router-link :to="{ name: 'FormVue' }">FormVue</router-link>
-    |
-    <router-link :to="{ name: 'DynamicComponent' }"
-      >DynamicComponent</router-link
-    >
-    |
-    <router-link :to="{ name: 'TeleportVue' }">TeleportVue</router-link>
-    | -->
   </div>
 
   <button @click="redirect">Redirect</button>
@@ -107,6 +87,7 @@ export default {
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {

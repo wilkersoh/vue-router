@@ -2,6 +2,7 @@
   <div class="custom">
     <input
       type="text"
+      placeholder="need use vue tool to check, is it updated."
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
     />
