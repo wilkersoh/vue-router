@@ -9,7 +9,7 @@ import PostDetails from '../views/posts/PostDetails.vue';
 import FormVue from '../views/FormVue.vue';
 import DynamicComponent from '../views/DynamicComponent.vue';
 import TeleportVue from '../views/TeleportVue.vue';
-import MixinsVue from '../views/MixinsVue.vue';
+import MixinsOrHook from '../views/MixinsOrHook.vue';
 import WatchVue from '../views/WatchVue.vue';
 import TemplateRef from '../views/TemplateRef.vue';
 import PropsWithComposition from '../views/PropsWithComposition.vue';
@@ -72,9 +72,9 @@ export const routes = [
     component: TeleportVue,
   },
   {
-    path: '/mixins',
-    name: 'MixinsVue',
-    component: MixinsVue,
+    path: '/mixins-or-hook',
+    name: 'MixinsOrHook',
+    component: MixinsOrHook,
   },
   {
     path: '/watch',

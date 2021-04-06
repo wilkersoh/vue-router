@@ -6,9 +6,18 @@
 
 <script>
 import CounterMixin from '../mixins/counter';
+import { useCounter } from '../composables/useCounter'; // hook
 
 export default {
-  name: 'HoverMixinsComponent',
-  mixins: [CounterMixin],
+  name: 'ClickMixinsComponentA',
+  // mixins: [CounterMixin],
+  setup() {
+    const { count, incrementCount } = useCounter(2, 4);
+
+    return {
+      count,
+      incrementCount,
+    };
+  },
 };
 </script>
