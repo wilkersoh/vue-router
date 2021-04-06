@@ -11,6 +11,8 @@ import DynamicComponent from '../views/DynamicComponent.vue';
 import TeleportVue from '../views/TeleportVue.vue';
 import MixinsVue from '../views/MixinsVue.vue';
 import WatchVue from '../views/WatchVue.vue';
+import TemplateRef from '../views/TemplateRef.vue';
+import PropsWithComposition from '../views/PropsWithComposition.vue';
 
 export const routes = [
   {
@@ -78,6 +80,16 @@ export const routes = [
     path: '/watch',
     name: 'WatchVue',
     component: WatchVue,
+  },
+  {
+    path: '/template-ref',
+    name: 'TemplateRef',
+    component: TemplateRef,
+  },
+  {
+    path: '/props-composition',
+    name: 'PropsWithComposition',
+    component: PropsWithComposition,
   },
   // redirect
   {
