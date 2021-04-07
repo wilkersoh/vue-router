@@ -3,10 +3,11 @@
     <h1 class="text-xl text-center font-semibold mb-2">
       {{ isLogin ? 'Login' : 'Sign Up' }}
     </h1>
+
     <input
       type="text"
       placeholder="Email Address"
-      @input="emailField.handleChange"
+      @change="emailField.handleChange"
       @blur="emailField.handleBlur"
       :value="emailField.value"
       class="px-4 my-2 min-w-full mx-auto border border-gray-500 rounded-full focus:outline-none focus:ring-1 focus:border-blue-300"
@@ -83,6 +84,8 @@
 import { useField, useForm } from 'vee-validate';
 import { reactive, computed, watch } from 'vue';
 
+import '../validators';
+
 export default {
   name: 'LoginForm',
   props: {
@@ -100,7 +103,13 @@ export default {
   },
   setup(props, { emit }) {
     const { meta: formMeta, handleSubmit } = useForm();
-    const emailField = reactive(useField('email', 'email'));
+
+    /**
+     * const { handleChange, hancleInput, handleBlur, value, errorMessage } = useForm('fieldName', rules, {options})
+     */
+    const emailField = reactive(
+      useField('email', 'email', { validateOnValueUpdate: false })
+    );
     const passwordField = reactive(useField('password', 'password'));
 
     const confirmPasswordValidator = computed(() => {
@@ -112,7 +121,7 @@ export default {
     );
 
     watch(
-      () => props.isLogin, // change then call confirmPasswordField.validate() to check
+      () => props.isLogin, // changed then call confirmPasswordField.validate() to check
       () => {
         confirmPasswordField.validate();
       }

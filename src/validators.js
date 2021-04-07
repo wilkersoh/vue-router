@@ -10,7 +10,19 @@ defineRule('password', (value) => {
 
 defineRule('confirmPassword', (value, [target], ctx) => {
   // ctx give the access to enter entire form
-  if (value || value === ctx.form[target]) {
+  /**
+   * target return "password"
+   * How target knows we want to link with password field?
+   *  From below :password, it will say it confirmPassword, the target fieldName is password
+   *  then since our ctx.form has the access to retrieve whole form data
+    const confirmPasswordValidator = computed(() => {
+      return !props.isLogin ? 'confirmPassword:password' : () => true;
+    });
+   *
+   * value is the value from confirm password
+   */
+  if (value === ctx.form[target]) {
+    // they are same then pass the validate
     return true;
   }
 
