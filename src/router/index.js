@@ -14,6 +14,7 @@ import WatchVue from '../views/WatchVue.vue';
 import TemplateRef from '../views/TemplateRef.vue';
 import PropsWithComposition from '../views/PropsWithComposition.vue';
 import VeeValidateForm from '../views/VeeValidateForm.vue';
+import DefineComponentVue from '../views/DefineComponentVue.vue';
 
 export const routes = [
   {
@@ -108,6 +109,11 @@ export const routes = [
     path: '/vee-validate',
     name: 'VeeValidateForm',
     component: VeeValidateForm,
+  },
+  {
+    path: '/define-component',
+    name: 'DefineComponentVue',
+    component: DefineComponentVue,
   },
   // redirect
   {
