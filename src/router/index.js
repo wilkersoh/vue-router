@@ -13,6 +13,7 @@ import MixinsOrHook from '../views/MixinsOrHook.vue';
 import WatchVue from '../views/WatchVue.vue';
 import TemplateRef from '../views/TemplateRef.vue';
 import PropsWithComposition from '../views/PropsWithComposition.vue';
+import VeeValidateForm from '../views/VeeValidateForm.vue';
 
 export const routes = [
   {
@@ -102,6 +103,11 @@ export const routes = [
     path: '/props-composition',
     name: 'PropsWithComposition',
     component: PropsWithComposition,
+  },
+  {
+    path: '/vee-validate',
+    name: 'VeeValidateForm',
+    component: VeeValidateForm,
   },
   // redirect
   {
