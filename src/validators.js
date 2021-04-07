@@ -15,9 +15,9 @@ defineRule('confirmPassword', (value, [target], ctx) => {
    * How target knows we want to link with password field?
    *  From below :password, it will say it confirmPassword, the target fieldName is password
    *  then since our ctx.form has the access to retrieve whole form data
-    const confirmPasswordValidator = computed(() => {
-      return !props.isLogin ? 'confirmPassword:password' : () => true;
-    });
+    const confirmPasswordField = reactive(
+      useField('confirmPassword', confirmPasswordValidator) > confirmPasswordValidator is confirmPassword:password
+    );
    *
    * value is the value from confirm password
    */

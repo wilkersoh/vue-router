@@ -113,6 +113,7 @@ export default {
     const passwordField = reactive(useField('password', 'password'));
 
     const confirmPasswordValidator = computed(() => {
+      console.log('isLogin', props.isLogin);
       return !props.isLogin ? 'confirmPassword:password' : () => true;
     });
 
