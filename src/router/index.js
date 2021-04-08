@@ -18,6 +18,7 @@ import DefineComponentVue from '../views/DefineComponentVue.vue';
 import MutilpleComponentInOneFile from '../views/MutilpleComponentInOneFile.vue';
 import JSXComponent from '../views/JSXComponent.vue';
 import LazyLoadingComponent from '../views/LazyLoadingComponent.vue';
+import HRender from '../views/HRender.vue';
 
 export const routes = [
   {
@@ -132,6 +133,11 @@ export const routes = [
     path: '/lazy-loading-component',
     name: 'LazyLoadingComponent',
     component: LazyLoadingComponent,
+  },
+  {
+    path: '/h-render',
+    name: 'HRender',
+    component: HRender,
   },
   // redirect
   {
