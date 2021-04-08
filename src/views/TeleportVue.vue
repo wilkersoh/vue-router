@@ -2,14 +2,14 @@
   <h2>TeleportVue</h2>
   <button @click="showModal = true">Show teleport</button>
   <teleport to="#portal-root">
-    <TeleportModal v-show="showModal" @close="handleClose">
+    <teleport-modal v-show="showModal" @close="handleClose">
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam fuga
         voluptatum culpa expedita placeat laudantium, facere commodi unde, fugit
         veniam odit, doloribus perferendis asperiores est. Cum excepturi
         veritatis maiores commodi?
       </p>
-    </TeleportModal>
+    </teleport-modal>
   </teleport>
 </template>
 
