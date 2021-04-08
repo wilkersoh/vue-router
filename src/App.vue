@@ -16,6 +16,8 @@
   <Popup v-show="showPopup" @closePopup="handleClosePopup" :title="popupData" />
 
   <router-view />
+
+  <div class="footer"></div>
 </template>
 
 <script>
@@ -92,5 +94,8 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.footer {
+  padding: 2rem;
 }
 </style>

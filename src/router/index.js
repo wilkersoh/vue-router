@@ -17,6 +17,7 @@ import VeeValidateForm from '../views/VeeValidateForm.vue';
 import DefineComponentVue from '../views/DefineComponentVue.vue';
 import MutilpleComponentInOneFile from '../views/MutilpleComponentInOneFile.vue';
 import JSXComponent from '../views/JSXComponent.vue';
+import LazyLoadingComponent from '../views/LazyLoadingComponent.vue';
 
 export const routes = [
   {
@@ -126,6 +127,11 @@ export const routes = [
     path: '/jsx-component',
     name: 'JSXComponent',
     component: JSXComponent,
+  },
+  {
+    path: '/lazy-loading-component',
+    name: 'LazyLoadingComponent',
+    component: LazyLoadingComponent,
   },
   // redirect
   {
