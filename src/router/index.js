@@ -15,6 +15,8 @@ import TemplateRef from '../views/TemplateRef.vue';
 import PropsWithComposition from '../views/PropsWithComposition.vue';
 import VeeValidateForm from '../views/VeeValidateForm.vue';
 import DefineComponentVue from '../views/DefineComponentVue.vue';
+import MutilpleComponentInOneFile from '../views/MutilpleComponentInOneFile.vue';
+import JSXComponent from '../views/JSXComponent.vue';
 
 export const routes = [
   {
@@ -114,6 +116,16 @@ export const routes = [
     path: '/define-component',
     name: 'DefineComponentVue',
     component: DefineComponentVue,
+  },
+  {
+    path: '/multiple-component-in-file',
+    name: 'MutilpleComponentInOneFile',
+    component: MutilpleComponentInOneFile,
+  },
+  {
+    path: '/jsx-component',
+    name: 'JSXComponent',
+    component: JSXComponent,
   },
   // redirect
   {

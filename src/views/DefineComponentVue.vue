@@ -2,13 +2,13 @@
   <div>
     <h1>DefineComponentVue {{ count }}</h1>
 
-    <NormalComponent :incrementCount="increment" />
+    <PassPropsFromParent :increment="increment" />
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import NormalComponent from '../components/NormalComponent';
+import PassPropsFromParent from '../components/PassPropsFromParent';
 
 export default defineComponent({
   setup() {
@@ -21,6 +21,6 @@ export default defineComponent({
 
     return { count, increment };
   },
-  components: { NormalComponent },
+  components: { PassPropsFromParent },
 });
 </script>
