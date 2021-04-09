@@ -19,6 +19,7 @@ import MutilpleComponentInOneFile from '../views/MutilpleComponentInOneFile.vue'
 import JSXComponent from '../views/JSXComponent.vue';
 import LazyLoadingComponent from '../views/LazyLoadingComponent.vue';
 import HRender from '../views/HRender.vue';
+import FormValidateYup from '../views/form';
 
 export const routes = [
   {
@@ -138,6 +139,11 @@ export const routes = [
     path: '/h-render',
     name: 'HRender',
     component: HRender,
+  },
+  {
+    path: '/validate-with-yup',
+    name: 'FormValidateYup',
+    component: FormValidateYup,
   },
   // redirect
   {

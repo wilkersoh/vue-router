@@ -25,7 +25,6 @@
 
 <script>
 import { ref } from 'vue';
-import { Field, Form } from 'vee-validate';
 import LoginForm from '../components/LoginForm';
 
 export default {
