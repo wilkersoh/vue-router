@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { h, render, ref } from 'vue';
+import { Vue, h, render, ref } from 'vue';
 
 const Hello = {
   props: ['msg'],
@@ -17,6 +17,14 @@ const Hello = {
     return h('div', [h('h1', 'cooool...'), h('div', this.msg)]);
   },
 };
+
+// const Hello = Vue.component('hello', {
+//   props: ['msg'],
+//   template: `
+//     <h1>coool</h1>
+//     <div>{{ this.msg }}</div>
+//   `,
+// });
 
 export default {
   name: 'HRender',

@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1>Lazy Loading Component</h1>
-    <div>render??</div>
+    adsadas
+    <div>why suspense not working??</div>
     <Suspense>
       <template #default>
         <AsyncUser v-for="user in users" :key="user.id" :user="user" />
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-import { ref, onMounted, defineAsyncComponent } from 'vue';
+import { ref, onMounted, defineAsyncComponent, Suspense } from 'vue';
 import LazyComponent from '../components/LazyComponent';
 import Loading from '../components/Loading';
 
@@ -25,7 +26,7 @@ const AsyncUser = defineAsyncComponent({
     import('../components/LazyComponent.vue' /* webpackChunkName: "user" */),
   loadingComponent: Loading,
   delay: 200,
-  suspensible: false, // false mean, cancel parent suspend loading.
+  suspensible: false, // ccomponent's own loading, error, delay will be ignored if it is true, by defualt it will use Suspense if Suspen in the parent chain.
 });
 
 export default {
@@ -42,14 +43,12 @@ export default {
         { id: 3, name: 'laoyeche' },
       ];
 
-      await sleep(2000);
+      await sleep(4000);
       console.log('wake up');
       users.value = data;
     };
 
-    onMounted(async () => {
-      await getUsers();
-    });
+    onMounted(() => getUsers());
 
     return {
       users,
