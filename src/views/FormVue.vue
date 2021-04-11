@@ -1,4 +1,5 @@
 <template>
+<div>
   <div>
     <pre>
     {{ JSON.stringify(formValues, null, 2) }}
@@ -107,6 +108,7 @@
     </div>
     <button type="submit">Submit</button>
   </form>
+</div>
 </template>
 
 <script>

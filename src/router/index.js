@@ -21,6 +21,7 @@ import LazyLoadingComponent from "../views/LazyLoadingComponent.vue";
 import HRender from "../views/HRender.vue";
 import FormValidateYup from "../views/form";
 import DirectiveCustom from "../views/DirectiveCustom";
+import Transition from "../views/Transition";
 
 export const routes = [
   {
@@ -150,6 +151,20 @@ export const routes = [
     path: "/directive-custom",
     name: "DirectiveCustom",
     component: DirectiveCustom,
+  },
+  {
+    path: "/transition-component",
+    name: "Transition",
+    component: Transition,
+  },
+  {
+    path: "/transition-javascript-hook",
+    name: "TransitionJavascriptHook",
+    // component: TransitionJavascriptHook,
+    component: () =>
+      import(
+        /* webpackChunkName: "transitionJavascriptHook" */ "../views/TransitionJavascriptHook.vue"
+      ),
   },
   // redirect
   {

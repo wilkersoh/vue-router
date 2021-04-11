@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <h1>Custom Directive</h1>
@@ -21,4 +20,3 @@ export default {
   directives: {pin: PinDirective}
 }
 </script>
-

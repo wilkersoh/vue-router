@@ -1,4 +1,5 @@
 <template>
+<div>
   <h2>TeleportVue</h2>
   <button @click="showModal = true">Show teleport</button>
   <teleport to="#portal-root">
@@ -11,6 +12,7 @@
       </p>
     </teleport-modal>
   </teleport>
+  </div>
 </template>
 
 <script>

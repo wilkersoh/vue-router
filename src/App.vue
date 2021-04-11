@@ -15,7 +15,11 @@
 
   <Popup v-show="showPopup" @closePopup="handleClosePopup" :title="popupData" />
 
-  <router-view />
+  <router-view v-slot="{ Component }">
+    <transition name="route" mode="out-in">
+      <component :is="Component"></component>
+    </transition>
+  </router-view>
 
   <div class="footer"></div>
 </template>
@@ -28,7 +32,7 @@ import InputComponent from './components/InputComponent';
 export default {
   components: {
     Popup,
-    InputComponent,
+    InputComponent
   },
   data() {
     return { routes: [], showPopup: false, popupData: '', inputName: '' };
@@ -97,5 +101,21 @@ export default {
 }
 .footer {
   padding: 2rem;
+}
+
+/* Transition route */
+.route-enter-from {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.route-enter-active {
+  transition: all 0.3s ease-out
+}
+.route-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.route-leave-active {
+  transition: all 0.3s ease-in;
 }
 </style>
