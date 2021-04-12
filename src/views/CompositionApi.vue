@@ -1,18 +1,20 @@
 <template>
-  <h1>Composition Api Page</h1>
-  <h1>Ref</h1>
-  <p>{{ user.name }} and age is {{ user.age }}</p>
-  <button @click="handleClick">Click me</button>
-  <input type="text" v-model="user.name" />
-  <h2>Reactive</h2>
-  <p>{{ userOther.name }} and age is {{ userOther.age }}</p>
-  <button @click="updateUserOther">Update other user</button>
-  <h2>Computed hook to use filter</h2>
-  <div v-for="name in matchingNames" :key="name">{{ name }}</div>
-  <input type="text" v-model="search" />
-  <p>search term - {{ search }}</p>
-  <h2>watch || watchEffect (didn't trigger watch login again after clicked)</h2>
-  <button @click="handleStopWatch">Stop watching</button>
+  <div>
+    <h1>Composition Api Page</h1>
+    <h1>Ref</h1>
+    <p>{{ user.name }} and age is {{ user.age }}</p>
+    <button @click="handleClick">Click me</button>
+    <input type="text" v-model="user.name" />
+    <h2>Reactive</h2>
+    <p>{{ userOther.name }} and age is {{ userOther.age }}</p>
+    <button @click="updateUserOther">Update other user</button>
+    <h2>Computed hook to use filter</h2>
+    <div v-for="name in matchingNames" :key="name">{{ name }}</div>
+    <input type="text" v-model="search" />
+    <p>search term - {{ search }}</p>
+    <h2>watch || watchEffect (didn't trigger watch login again after clicked)</h2>
+    <button @click="handleStopWatch">Stop watching</button>
+  </div>
 </template>
 
 <script>

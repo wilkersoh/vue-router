@@ -166,6 +166,15 @@ export const routes = [
         /* webpackChunkName: "transitionJavascriptHook" */ "../views/TransitionJavascriptHook.vue"
       ),
   },
+  {
+    path: "/slider",
+    name: "Slider",
+    // component: TransitionJavascriptHook,
+    component: () =>
+      import(
+        /* webpackChunkName: "transitionJavascriptHook" */ "../views/Slider.vue"
+      ),
+  },
   // redirect
   {
     path: "/all-jobs",

@@ -3,48 +3,50 @@
     <h1 class="text-xl text-center font-semibold mb-2">
       {{ isLogin ? 'Login' : 'Sign Up' }}
     </h1>
-
-    <input
-      type="text"
-      placeholder="Email Address"
-      @change="emailField.handleChange"
-      @blur="emailField.handleBlur"
-      :value="emailField.value"
-      class="px-4 my-2 min-w-full mx-auto border border-gray-500 rounded-full focus:outline-none focus:ring-1 focus:border-blue-300"
-    />
-    <p
-      class="text-center text-red-500"
-      :style="{
-        visibility:
-          emailField.meta.touched && !emailField.meta.valid
-            ? 'visible'
-            : 'hidden',
-      }"
-    >
-      {{ emailField.errorMessage || 'Field is Required' }}
-    </p>
-    <input
-      type="password"
-      placeholder="Password"
-      @input="
-        passwordField.handleChange($event), confirmPasswordField.validate()
-      "
-      @blur="passwordField.handleBlur"
-      :value="passwordField.value"
-      class="px-4 my-2 min-w-full mx-auto border border-gray-500 rounded-full focus:outline-none focus:ring-1 focus:border-blue-300"
-    />
-    <p
-      class="text-center text-red-500"
-      :style="{
-        visibility:
-          passwordField.meta.touched && !passwordField.meta.valid
-            ? 'visible'
-            : 'hidden',
-      }"
-    >
-      {{ passwordField.errorMessage || 'Field is Required' }}
-    </p>
-
+    <form>
+      <input
+        type="email"
+        placeholder="Email Address"
+        autocomplete="email"
+        @change="emailField.handleChange"
+        @blur="emailField.handleBlur"
+        :value="emailField.value"
+        class="field"
+      />
+      <p
+        class="text-center text-red-500"
+        :style="{
+          visibility:
+            emailField.meta.touched && !emailField.meta.valid
+              ? 'visible'
+              : 'hidden',
+        }"
+      >
+        {{ emailField.errorMessage || 'Field is Required' }}
+      </p>
+      <input
+        type="password"
+        autocomplete="current-password"
+        placeholder="Password"
+        @input="
+          passwordField.handleChange($event), confirmPasswordField.validate()
+        "
+        @blur="passwordField.handleBlur"
+        :value="passwordField.value"
+        class="field"
+      />
+      <p
+        class="text-center text-red-500"
+        :style="{
+          visibility:
+            passwordField.meta.touched && !passwordField.meta.valid
+              ? 'visible'
+              : 'hidden',
+        }"
+      >
+        {{ passwordField.errorMessage || 'Field is Required' }}
+      </p>
+    </form>
     <template v-if="!isLogin">
       <input
         type="password"

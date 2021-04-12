@@ -14,6 +14,7 @@
       <Field
         name="password"
         type="password"
+        autocomplete="password"
         aria-placeholder="password"
         placeholder="password"
         class="field"
@@ -61,6 +62,10 @@ export default {
 
       return 'This is required';
     },
+    submit(e) {
+      console.log("go hit")
+      console.log("e:", e)
+    }
   },
 };
 </script>
