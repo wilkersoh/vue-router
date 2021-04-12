@@ -168,12 +168,9 @@ export const routes = [
   },
   {
     path: "/slider",
-    name: "Slider",
-    // component: TransitionJavascriptHook,
+    name: "SliderPage",
     component: () =>
-      import(
-        /* webpackChunkName: "transitionJavascriptHook" */ "../views/Slider.vue"
-      ),
+      import(/* webpackChunkName: "SliderPage" */ "../views/SliderPage.vue"),
   },
   // redirect
   {
