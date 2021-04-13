@@ -2,13 +2,19 @@
   <div>
     <h1>I am slider</h1>
     <div class="slider">
-      <Dots @clickedDot="clickedDot" :length="images.length" :currentIndex="currentIndex" />
-      <ul class="sliderContent" :style="transformStyle ">
+      <Dots
+        @clickedDot="clickedDot"
+        :length="images.length"
+        :currentIndex="currentIndex"
+      />
+      <ul class="sliderContent" :style="transformStyle">
         <li v-for="(image, index) in images" :key="index">
           <img :src="image" />
         </li>
       </ul>
-      <button @click="prev" class="button btn-previous">&#10094; Previous</button>
+      <button @click="prev" class="button btn-previous">
+        &#10094; Previous
+      </button>
       <button @click="next" class="button btn-next">&#10095; Next</button>
     </div>
   </div>
@@ -16,19 +22,19 @@
 
 <script>
 import { ref, reactive, toRefs, watch } from 'vue';
-import Dots from "@/components/SliderComponent/Dots";
+import Dots from '@/components/SliderComponent/Dots';
 
 export default {
   name: 'Slider',
-  components: {Dots},
+  components: { Dots },
   props: {
     images: {
       type: Array,
       required: true,
-    }
+    },
   },
   setup(props) {
-    const {images} = toRefs(props);
+    const { images } = toRefs(props);
 
     // const images = ref([
     //   'https://cdn.pixabay.com/photo/2015/12/12/15/24/amsterdam-1089646_1280.jpg',
@@ -39,7 +45,7 @@ export default {
 
     const state = reactive({
       currentIndex: 0,
-      transition: 0.45,
+      transition: 750,
     });
 
     const transformStyle = ref('');
@@ -55,18 +61,18 @@ export default {
     };
 
     const clickedDot = (e) => {
-      const selectedIndex =  e.target.dataset.index;
+      const selectedIndex = e.target.dataset.index;
       state.currentIndex = +selectedIndex;
-    }
+    };
 
     watch(
       () => state.currentIndex,
       (newIndex) => {
         const value = newIndex * 100;
         transformStyle.value = {
-          'transform': `translate3d(-${value}%, 0, 0)`,
-          'transition': state.transition + 's',
-        }
+          transform: `translate3d(-${value}%, 0, 0)`,
+          transition: state.transition + 'ms',
+        };
       }
     );
 
