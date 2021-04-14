@@ -43,8 +43,6 @@ export default {
       }
     };
 
-    getPosts();
-
     const getCurrentPost = () => {
       const indexOfLastPost = state.currentPage * state.postPerPage;
       const indexOfFirstPost = indexOfLastPost - state.postPerPage;
@@ -54,23 +52,19 @@ export default {
       return currentPosts;
     };
 
-    watch(
-      () => posts.value,
-      () => {
-        currentPosts.value = getCurrentPost();
-      }
-    );
-
-    watch(
-      () => {
-        return { ...state };
-      },
-      (newValue, oldValue) => {
+    watch([
+      () => [...posts.value],
+      () => ({...state})
+    ],
+      (newValues, oldValues) => {
         currentPosts.value = getCurrentPost();
       }
     );
 
     const paginate = (pageNumber) => (state.currentPage = +pageNumber);
+
+
+    getPosts();
 
     return {
       ...toRefs(state),
