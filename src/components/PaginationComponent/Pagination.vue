@@ -6,9 +6,8 @@
       :paginate="paginate"
       :current-page="currentPage"
       :paginate-length="5"
-      @selectNumber="selectNumber"
     />
-    <button @click="trigger">trigger</button>
+
     <ul v-if="currentPosts.length">
       <li v-for="post in currentPosts" :key="post.id">{{ post.title }}</li>
     </ul>
@@ -33,13 +32,6 @@ export default {
     const posts = ref([]);
 
     const currentPosts = ref([]);
-
-    const selectNumber = (e) => state.currentPage = +e.target.dataset.index;
-
-    const trigger = () => {
-      state.currentPage += 1;
-      console.log('state.currentPage :>> ', state.currentPage);
-    };
 
     const getPosts = async () => {
       try {
@@ -68,17 +60,15 @@ export default {
       }
     );
 
-    const paginate = (pageNumber) => (state.currentPage = +pageNumber);
+    const paginate = (pageNumber) => state.currentPage = +pageNumber
 
     getPosts();
 
     return {
       ...toRefs(state),
       currentPosts,
-      trigger,
       posts,
       paginate,
-      selectNumber
     };
   },
 };

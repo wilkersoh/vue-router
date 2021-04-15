@@ -2,7 +2,7 @@
   <div>
     Controls {{ currentPage }}
     <ul class="paginate-container">
-      <li @click="$emit('selectNumber', $event)" :data-index="number" v-for="number in pageNumbers" :key="number" :class="{ active: currentPage === number }">{{ number }}</li>
+      <li @click="paginate(number)" v-for="number in pageNumbers" :key="number" :class="{ active: currentPage === number }">{{ number }}</li>
     </ul>
   </div>
 </template>
@@ -12,7 +12,6 @@ import {toRefs, computed} from "vue";
 
 export default {
   name: 'Controls',
-  emits: ['selectNumber'],
   props: {
     totalPosts: {
       type: Number,
@@ -36,7 +35,7 @@ export default {
     const pageNumbers = computed(() => {
       let pageNumbers = [];
       let pages = Math.ceil(totalPosts.value / postsPerPage.value);
-    console.log(`pages`, pages)
+
       // currentPage = 5; paginateLength = 5; 5 / 2 = 2; maxLeft = 5 - 2 = 3
       let maxLeft = currentPage.value - Math.floor(paginateLength.value / 2); // if click 5 then show 3 4, that is 2 mean, the nearest 2 number
       let maxRight = currentPage.value + Math.floor(paginateLength.value / 2);
@@ -60,15 +59,11 @@ export default {
       return pageNumbers;
     });
 
-    // watch([currentPage], (newValue, oldValue) => {
-    //   console.log(`newValue`, newValue)
-    // });
-
     return {
       currentPage,
-      pageNumbers
+      pageNumbers,
+      paginate
     }
-
   },
 };
 </script>
