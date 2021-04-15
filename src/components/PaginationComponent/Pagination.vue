@@ -1,6 +1,12 @@
 <template>
   <div>
-    <Controls />
+    <Controls
+      :total-posts="posts.length"
+      :postsPerPage="postPerPage"
+      :paginate="paginate"
+      :currentPage="currentPage"
+      :paginateLength="5"
+    />
     <button @click="trigger">trigger</button>
     <ul v-if="currentPosts.length">
       <li v-for="post in currentPosts" :key="post.id">{{ post.title }}</li>
@@ -52,10 +58,8 @@ export default {
       return currentPosts;
     };
 
-    watch([
-      () => [...posts.value],
-      () => ({...state})
-    ],
+    watch(
+      [() => [...posts.value], () => ({ ...state })],
       (newValues, oldValues) => {
         currentPosts.value = getCurrentPost();
       }
@@ -63,13 +67,13 @@ export default {
 
     const paginate = (pageNumber) => (state.currentPage = +pageNumber);
 
-
     getPosts();
 
     return {
       ...toRefs(state),
       currentPosts,
       trigger,
+      posts,
     };
   },
 };

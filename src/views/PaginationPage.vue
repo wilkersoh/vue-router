@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>I am pagination</h1>
+    <!-- <h1>I am pagination</h1> -->
     <Pagination />
   </div>
 </template>

@@ -7,7 +7,14 @@
 <script>
 export default {
   name: 'Controls',
-  props: ['state'],
+  props: {
+    paginateLength: {
+      type: Number,
+    },
+    totalPosts: {
+      type: Number,
+    },
+  },
   setup() {
     //
     console.log('i am controls');
