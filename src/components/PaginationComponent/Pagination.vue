@@ -2,10 +2,11 @@
   <div>
     <Controls
       :total-posts="posts.length"
-      :postsPerPage="postPerPage"
+      :posts-per-page="postPerPage"
       :paginate="paginate"
-      :currentPage="currentPage"
-      :paginateLength="5"
+      :current-page="currentPage"
+      :paginate-length="5"
+      @selectNumber="selectNumber"
     />
     <button @click="trigger">trigger</button>
     <ul v-if="currentPosts.length">
@@ -17,7 +18,7 @@
 
 <script>
 import { API_URL } from '../../../data/API';
-import { ref, reactive, toRefs, computed, watch } from 'vue';
+import { ref, reactive, toRefs, watch } from 'vue';
 import Controls from './Controls';
 
 export default {
@@ -32,6 +33,8 @@ export default {
     const posts = ref([]);
 
     const currentPosts = ref([]);
+
+    const selectNumber = (e) => state.currentPage = +e.target.dataset.index;
 
     const trigger = () => {
       state.currentPage += 1;
@@ -74,6 +77,8 @@ export default {
       currentPosts,
       trigger,
       posts,
+      paginate,
+      selectNumber
     };
   },
 };
