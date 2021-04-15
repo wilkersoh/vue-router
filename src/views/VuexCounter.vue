@@ -1,34 +1,38 @@
 <template>
   <div>
-      Count: {{count}}
+      Count: {{count}}, {{ count }}<sup>2</sup> = {{ squad }}
       <button @click="increment">increment</button>
       <button @click="decrement">decrement</button>
+
   </div>
 </template>
 
 <script>
 import {useStore} from 'vuex';
-import {computed} from 'vue';
+import {computed, ref} from 'vue';
 
   export default {
     name: 'VuexCounter',
     setup() {
+      const squad = ref("");
       const store = useStore()
-      const count = computed(() => store.state.count);
+      const count = computed(() => store.state.counter.count);
 
       const increment = () => {
-        const number = Math.floor(Math.random() * 10);
-        store.dispatch("increaseCounter", number);
+        const number = Math.floor(Math.random() * 10)
+        store.dispatch('counter/increaseCounter', number);
+        squad.value = store.getters['counter/getCounterSquad'];
       }
 
       const decrement = () => {
-        store.dispatch("decreaseCounter");
+        store.dispatch("counter/decreaseCounter");
       }
 
       return {
         count,
         increment,
-        decrement
+        decrement,
+        squad
       }
     }
   }
