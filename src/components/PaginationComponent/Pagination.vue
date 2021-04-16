@@ -17,10 +17,10 @@
 
 <script>
 import { API_URL } from '../../../data/API';
-import { ref, reactive, toRefs, watch } from 'vue';
+import { ref, reactive, toRefs, watch, defineComponent } from 'vue';
 import Controls from './Controls';
 
-export default {
+export default defineComponent({
   name: 'Pagination',
   components: { Controls },
   setup() {
@@ -37,8 +37,8 @@ export default {
       try {
         const res = await fetch(API_URL);
         if (!res.status) throw new Error('No data available');
-
         posts.value = await res.json();
+        console.log(posts.value)
       } catch (error) {
         console.warn(error);
       }
@@ -71,7 +71,5 @@ export default {
       paginate,
     };
   },
-};
+});
 </script>
-
-<style lang="scss" scoped></style>

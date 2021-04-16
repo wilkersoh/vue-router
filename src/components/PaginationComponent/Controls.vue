@@ -55,6 +55,15 @@ export default {
       for (let page = maxLeft; page <= maxRight; page++) {
         pageNumbers.push(page);
       }
+
+      // if(pageNumbers[1] >= 4) {
+      //   pageNumbers.splice(1, 0, "...");
+      // }
+
+      // if(pageNumbers[4] >= pages - 2) {
+      //   pageNumbers.splice(5, 0, "...");
+      // }
+
       console.log(`pageNumbers`, pageNumbers)
       return pageNumbers;
     });
