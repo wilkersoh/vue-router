@@ -2,7 +2,7 @@ export default {
   namespaced: true,
 
   state: {
-    count: 0,
+    count: 2,
   },
 
   mutations: {
@@ -28,5 +28,6 @@ export default {
       const squad = state.count * state.count;
       return squad;
     },
+    getCountValue: (state) => state.count,
   },
 };

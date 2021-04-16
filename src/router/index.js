@@ -181,6 +181,14 @@ export const routes = [
       ),
   },
   {
+    path: "/vuex-calculator",
+    name: "VuexCalculator",
+    component: () =>
+      import(
+        /* webpackChunkName: "VuexCalculator" */ "../views/VuexCalculator.vue"
+      ),
+  },
+  {
     path: "/vuex-counter",
     name: "VuexCounter",
     component: () =>
