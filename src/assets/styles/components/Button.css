@@ -25,7 +25,3 @@
 .btn-gray:hover {
   @apply bg-gray-300;
 }
-
-.field {
-  @apply border p-2;
-}

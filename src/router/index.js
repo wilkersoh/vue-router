@@ -181,6 +181,12 @@ export const routes = [
       ),
   },
   {
+    path: "/vuex-counter",
+    name: "VuexCounter",
+    component: () =>
+      import(/* webpackChunkName: "VuexCounter" */ "../views/VuexCounter.vue"),
+  },
+  {
     path: "/vuex-calculator",
     name: "VuexCalculator",
     component: () =>
@@ -189,10 +195,12 @@ export const routes = [
       ),
   },
   {
-    path: "/vuex-counter",
-    name: "VuexCounter",
+    path: "/form-validate-vue",
+    name: "FormValidateVue",
     component: () =>
-      import(/* webpackChunkName: "VuexCounter" */ "../views/VuexCounter.vue"),
+      import(
+        /* webpackChunkName: "FormValidateVue" */ "../views/FormValidateVue.vue"
+      ),
   },
   // redirect
   {

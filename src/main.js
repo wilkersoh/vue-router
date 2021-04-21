@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 
 import "./assets/styles/tailwind.css";
+import "./index.css";
 
 // createApp(App)
 //   .use(store)
