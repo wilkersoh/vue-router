@@ -196,10 +196,18 @@ export const routes = [
   },
   {
     path: "/form-validate-vue",
-    name: "FormValidateVue",
+    name: "UseFormValidateVueHook",
     component: () =>
       import(
-        /* webpackChunkName: "FormValidateVue" */ "../views/FormValidateVue.vue"
+        /* webpackChunkName: "UseFormValidateVueHook" */ "../views/UseFormValidateVueHook.vue"
+      ),
+  },
+  {
+    path: "/form-validate-vue",
+    name: "FormValidateAndField",
+    component: () =>
+      import(
+        /* webpackChunkName: "FormValidateAndField" */ "../views/FormValidateAndField.vue"
       ),
   },
   // redirect

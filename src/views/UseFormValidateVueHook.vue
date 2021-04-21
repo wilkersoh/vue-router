@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Form Validate from vee validate</h1>
+    <h1>useForm and useField Validate</h1>
+    <p>View validate <router-link class="underline" :to="{name: 'FormValidateAndField'}">Field and Form Component</router-link></p>
     <pre>errors: {{ errors }}</pre>
     <form @submit="onSubmit" class="flex justify-center">
       <div class="flex flex-col mt-4 w-92">
@@ -30,12 +31,13 @@
 </template>
 
 <script>
-  import { useField, useForm } from 'vee-validate';
+  import { useField, useForm, Form, Field, ErrorMessage } from 'vee-validate';
   import { object, string } from 'yup';
   import sleep from "../utils/sleep";
 
   export default {
-    name: 'FormValidateVue',
+    name: 'UseFormValidateVueHook',
+    components: { Form, Field, ErrorMessage },
     setup() {
       const initial = {
         initialValues: {
