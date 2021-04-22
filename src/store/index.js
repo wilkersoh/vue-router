@@ -2,7 +2,11 @@ import { createStore } from "vuex";
 import counter from "./modules/counter";
 
 const state = {
-  //
+  buttonPermission: {
+    add: true,
+    edit: false,
+    delete: true,
+  },
 };
 const mutations = {
   //
