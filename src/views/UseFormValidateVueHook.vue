@@ -7,11 +7,11 @@
       <div class="flex flex-col mt-4 w-92">
         <div class="flex justify-center items-center">
           <label class="text-right w-full pr-4" for="name">Name: </label>
-          <input v-model="name" type="text" name="name" id="name" placeholder="Name" autocomplete="name" class="field" :class="{'danger': errors.hasOwnProperty('name')}"  />
+          <input @change="handleChangeName"  @blur="handleChangeName"  v-model="name" type="text" name="name" id="name" placeholder="Name" autocomplete="name" class="field" :class="{'danger': errors.hasOwnProperty('name')}"  />
         </div>
         <div class="flex justify-center items-center">
           <label class="text-right w-full pr-4" for="email">email: </label>
-          <input v-model="email" type="text" name="email" id="email" placeholder="Email" autocomplete="email" class="field" :class="{'danger': errors.hasOwnProperty('email')}"  />
+          <input v-on="validationListeners" v-model="email" type="text" name="email" id="email" placeholder="Email" autocomplete="email" class="field" :class="{'danger': errors.hasOwnProperty('email')}"  />
         </div>
         <div class="flex justify-center items-center">
           <label class="text-right w-full pr-4" for="password">Password: </label>
@@ -19,31 +19,31 @@
         </div>
         <div class="flex justify-center items-center">
           <label class="text-right w-full pr-4" for="passwordConfirmation">Password Confirmation: </label>
-          <input v-model="passwordConfirmation" type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="Password" autocomplete="password-confirmation" class="field" :class="{'danger': errors.hasOwnProperty('passwordConfirmation')}"  />
+          <input v-model="passwordConfirmation" type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="Password Confirmation" autocomplete="password-confirmation" class="field" :class="{'danger': errors.hasOwnProperty('passwordConfirmation')}"  />
         </div>
         <div class="flex justify-center items-center">
 
         </div>
-        <button class="mt-2 btn-blue" type="submit">Submit</button>
+        <button :disabled="isSubmitting" class="mt-2 btn-blue" type="submit">Submit</button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-  import { useField, useForm, Form, Field, ErrorMessage } from 'vee-validate';
+  import {computed} from 'vue';
+  import { useField, useForm } from 'vee-validate';
   import { object, string } from 'yup';
   import sleep from "../utils/sleep";
 
   export default {
     name: 'UseFormValidateVueHook',
-    components: { Form, Field, ErrorMessage },
     setup() {
       const initial = {
         initialValues: {
-          name: 'wilker',
+          name: '',
+          email: '',
           password: '',
-          confirmation: '',
         },
         initialErackrors: {},
       }
@@ -61,8 +61,8 @@
 
       const { handleSubmit, isSubmitting, resetForm, setFieldError, setErrors, errors, meta } = useForm({...initial, validationSchema: schema});
 
-      const {value: name, handleChange: handleChangeName} = useField("name")
-      const {value: email} = useField("email")
+      const {value: name, handleChange: handleChangeName} = useField("name", _, { validateOnValueUpdate: false })
+      const {value: email, errorMessage, handleChange, handleInput} = useField("email", _, {validateOnValueUpdate: false})
       const {value: password} = useField("password")
       const {value: passwordConfirmation} = useField("passwordConfirmation");
 
@@ -71,6 +71,25 @@
         console.log(`values`, values)
         await sleep(5000)
         console.log(`isSubmitting below`, isSubmitting)
+      });
+
+      const validationListeners = computed(() => {
+      // If the field is valid or have not been validated yet
+      // lazy
+        if (!errorMessage.value) {
+          return {
+            blur: handleChange,
+            change: handleChange,
+            input: handleInput,
+          };
+        }
+
+        // Aggressive
+        return {
+          blur: handleChange,
+          change: handleChange,
+          input: handleChange, // only switched this
+        };
       });
 
       return {
@@ -82,6 +101,8 @@
         passwordConfirmation,
         errors,
         meta,
+        handleChangeName,
+        validationListeners
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Custom Directive {{test}}</h1>
+    <h1>Custom Directive</h1>
     <div v-pin> i am directive</div>
     <button class="btn-blue mr-2" v-has="'add'">add</button>
     <button class="btn-blue mr-2" v-has="'edit'">edit</button>
@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import {ref} from 'vue';
 import has from "../directive/has";
 const PinDirective = {
   beforeMount(el, binding, vnode, prevVnode) {
@@ -19,14 +18,8 @@ const PinDirective = {
   },
 }
 
-
 export default {
   name : 'DirectiveCustom',
   directives: { pin: PinDirective, has },
-  setup() {
-    const test = ref('csee me');
-
-    return {test}
-  }
 }
 </script>
