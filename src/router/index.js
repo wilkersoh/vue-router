@@ -219,6 +219,14 @@ export const routes = [
       ),
   },
   {
+    path: "/vmodel-modifier-custom",
+    name: "ModelModifierCustom",
+    component: () =>
+      import(
+        /* webpackChunkName: "ModelModifierCustom" */ "../views/vmodel/ModelModifierCustom.vue"
+      ),
+  },
+  {
     path: "/all-jobs",
     redirect: "/jobs",
   },
