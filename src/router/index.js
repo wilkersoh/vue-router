@@ -6,7 +6,7 @@ import NotFound from "../views/NotFound.vue";
 import CompositionApi from "../views/CompositionApi.vue";
 import Composables from "../views/posts/Composables.vue";
 import PostDetails from "../views/posts/PostDetails.vue";
-import FormVue from "../views/FormVue.vue";
+import FormVue from "../views/form/FormVue.vue";
 import DynamicComponent from "../views/DynamicComponent.vue";
 import TeleportVue from "../views/TeleportVue.vue";
 import MixinsOrHook from "../views/MixinsOrHook.vue";
@@ -21,7 +21,7 @@ import LazyLoadingComponent from "../views/LazyLoadingComponent.vue";
 import HRender from "../views/HRender.vue";
 import FormValidateYup from "../views/form";
 import DirectiveCustom from "../views/DirectiveCustom";
-import Transition from "../views/Transition";
+import Transition from "../views/animation/Transition.vue";
 
 export const routes = [
   {
@@ -163,7 +163,7 @@ export const routes = [
     // component: TransitionJavascriptHook,
     component: () =>
       import(
-        /* webpackChunkName: "transitionJavascriptHook" */ "../views/TransitionJavascriptHook.vue"
+        /* webpackChunkName: "transitionJavascriptHook" */ "../views/animation/TransitionJavascriptHook.vue"
       ),
   },
   {
@@ -199,7 +199,7 @@ export const routes = [
     name: "UseFormValidateVueHook",
     component: () =>
       import(
-        /* webpackChunkName: "UseFormValidateVueHook" */ "../views/UseFormValidateVueHook.vue"
+        /* webpackChunkName: "UseFormValidateVueHook" */ "../views/form/UseFormValidateVueHook.vue"
       ),
   },
   {
@@ -207,10 +207,17 @@ export const routes = [
     name: "FormValidateAndField",
     component: () =>
       import(
-        /* webpackChunkName: "FormValidateAndField" */ "../views/FormValidateAndField.vue"
+        /* webpackChunkName: "FormValidateAndField" */ "../views/form/FormValidateAndField.vue"
       ),
   },
-  // redirect
+  {
+    path: "/reuseableForm",
+    name: "ReuseableForm",
+    component: () =>
+      import(
+        /* webpackChunkName: "ReuseableForm" */ "../views/form/ReusebleForm.vue"
+      ),
+  },
   {
     path: "/all-jobs",
     redirect: "/jobs",
